@@ -41,7 +41,7 @@ export const CartItem = ({
 
       <div className="flex-1 flex flex-col">
         <p className="line-clamp-2 text-sm font-medium text-slate-800">{name}</p>
-        <p className="text-base font-bold text-slate-900">${price}</p>
+        <p className="text-base font-bold text-slate-900">${Number(price).toLocaleString()}</p>
       </div>
 
       <Button

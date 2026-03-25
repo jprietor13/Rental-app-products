@@ -1,19 +1,33 @@
 import { useState } from "react";
 import { useCart } from "../context/useCart";
-import { calculateDays, calculateTotal } from "../utils/rentalUtils";
-import { generateRentalJSON, downloadJSON } from "../utils/jsonUtils";
 import type { Product } from "../models/products";
+import { downloadJSON, generateRentalJSON } from "../utils/jsonUtils";
+import { calculateDays, calculateTotal } from "../utils/rentalUtils";
 
 export const useRental = (product: Product) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [quantity, setQuantity] = useState(0);
+  const [prevItemsLength, setPrevItemsLength] = useState(0);
 
   const { dispatch, state } = useCart();
 
-  const price = product?.prices?.[0]?.price || 0;
+  const rawPrice = String(product?.prices?.[0]?.price ?? 0);
+  const price = Number(rawPrice.replace(/\./g, "").replace(",", ".")) || 0;
 
-  const cartPriceSum = state.items.reduce((acc, item) => acc + item.price, 0);
+  if (state.items.length !== prevItemsLength) {
+    if (prevItemsLength > 0 && state.items.length === 0) {
+      setStartDate("");
+      setEndDate("");
+      setQuantity(0);
+    }
+    setPrevItemsLength(state.items.length);
+  }
+
+  const cartPriceSum = state.items.reduce((acc, item) => {
+    const raw = String(item.price);
+    return acc + (Number(raw.replace(/\./g, "").replace(",", ".")) || 0);
+  }, 0);
 
   const days = startDate && endDate ? calculateDays(startDate, endDate) : 0;
 

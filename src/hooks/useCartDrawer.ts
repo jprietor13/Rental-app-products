@@ -35,7 +35,10 @@ export const useCartDrawer = () => {
   };
 
   const calculateTotal = () => {
-    return state.items.reduce((acc: number, item) => acc + item.price, 0);
+    return state.items.reduce((acc: number, item) => {
+      const raw = String(item.price);
+      return acc + (Number(raw.replace(/\./g, "").replace(",", ".")) || 0);
+    }, 0);
   };
 
   const isAllSelected = selectedItems.length === state.items.length && state.items.length > 0;

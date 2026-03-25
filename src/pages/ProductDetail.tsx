@@ -120,7 +120,7 @@ export const ProductDetail = () => {
 
         {rental.total > 0 && (
           <p className="mt-4 rounded-xl bg-brand-50 px-4 py-3 text-xl font-bold text-brand-700">
-            Total estimado: ${rental.total}
+            Total estimado: ${rental.total.toLocaleString()}
           </p>
         )}
 

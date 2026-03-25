@@ -20,7 +20,7 @@ export const CartFooter = ({
   return (
     <div className="flex flex-col gap-4 bg-transparent pt-1">
       <Typography className="rounded-xl bg-brand-50 px-4 py-3 text-lg font-bold text-brand-800">
-        Total seleccionado: ${total}
+        Total seleccionado: ${Number(total).toLocaleString()}
       </Typography>
 
       <div className="flex flex-col gap-3">
