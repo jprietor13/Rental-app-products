@@ -21,17 +21,39 @@ export const AppDialog = ({
   setOpenDialog,
 }: AppDialogProps) => {
   return (
-    <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-      <DialogTitle>Confirmar alquiler</DialogTitle>
+    <Dialog
+      open={openDialog}
+      onClose={() => setOpenDialog(false)}
+      PaperProps={{
+        className: "rounded-2xl !p-2 shadow-lift transition-all duration-300",
+      }}
+    >
+      <DialogTitle className="text-xl font-semibold text-gray-900">
+        Confirmar alquiler
+      </DialogTitle>
 
-      <DialogContent>
-        <p>Días: {rental.days}</p>
-        <p>Cantidad: {rental.quantity}</p>
-        <p>Total: ${rental.total}</p>
+      <DialogContent className="flex flex-col gap-3 text-gray-700">
+        <p className="flex justify-between">
+          <span className="font-medium">Días:</span>
+          <span>{rental.days}</span>
+        </p>
+        <p className="flex justify-between">
+          <span className="font-medium">Cantidad:</span>
+          <span>{rental.quantity}</span>
+        </p>
+        <p className="flex justify-between text-lg font-bold text-brand-600">
+          <span>Total:</span>
+          <span>${rental.total}</span>
+        </p>
       </DialogContent>
 
-      <DialogActions>
-        <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
+      <DialogActions className="px-6 pb-4 flex justify-end gap-3">
+        <Button
+          onClick={() => setOpenDialog(false)}
+          className="!text-gray-600 hover:!bg-gray-100 !rounded-lg !px-4 !py-2 transition-all duration-200"
+        >
+          Cancelar
+        </Button>
 
         <Button
           variant="contained"
@@ -46,6 +68,7 @@ export const AppDialog = ({
             showMessage("El proceso de alquiler culminó de manera correcta");
             setOpenDialog(false);
           }}
+          className="!bg-brand-600 hover:!bg-brand-700 !text-white !font-semibold !px-5 !py-2 !rounded-lg !shadow-soft hover:!shadow-lift transition-all duration-300"
         >
           Confirmar
         </Button>
