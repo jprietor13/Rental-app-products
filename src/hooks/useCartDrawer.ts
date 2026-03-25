@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCart } from "../context/useCart";
+import { useCart } from "../context/cart/useCart";
 
 export const useCartDrawer = () => {
   const { state, dispatch } = useCart();
@@ -41,7 +41,8 @@ export const useCartDrawer = () => {
     }, 0);
   };
 
-  const isAllSelected = selectedItems.length === state.items.length && state.items.length > 0;
+  const isAllSelected =
+    selectedItems.length === state.items.length && state.items.length > 0;
   const hasSelectedItems = selectedItems.length > 0;
   const isEmpty = state.items.length === 0;
 

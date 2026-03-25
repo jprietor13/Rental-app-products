@@ -8,7 +8,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@mui/material";
-import { useCart } from "../context/useCart";
+import { useCart } from "../context/cart/useCart";
 
 export function CartRestoreDialog() {
   const { isRestoredCart, confirmRestoreSavedCart, dismissRestoreSavedCart } =

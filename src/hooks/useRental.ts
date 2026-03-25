@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCart } from "../context/useCart";
+import { useCart } from "../context/cart/useCart";
 import type { Product } from "../models/products";
 import { downloadJSON, generateRentalJSON } from "../utils/jsonUtils";
 import { calculateDays, calculateTotal } from "../utils/rentalUtils";
@@ -31,7 +31,8 @@ export const useRental = (product: Product) => {
 
   const days = startDate && endDate ? calculateDays(startDate, endDate) : 0;
 
-  const total = days && quantity ? calculateTotal(days, quantity, cartPriceSum) : 0;
+  const total =
+    days && quantity ? calculateTotal(days, quantity, cartPriceSum) : 0;
 
   const addToCart = () => {
     dispatch({

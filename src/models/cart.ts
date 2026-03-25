@@ -55,3 +55,12 @@ export interface CartSelectAllProps {
   isChecked: boolean;
   onChange: () => void;
 }
+
+export interface CartContextValue  {
+  state: CartState;
+  dispatch: React.Dispatch<CartAction>;
+  isRestoredCart: boolean;
+  confirmRestoreSavedCart: () => void;
+  dismissRestoreSavedCart: () => void;
+};
+

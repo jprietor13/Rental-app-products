@@ -1,6 +1,6 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import StorefrontIcon from "@mui/icons-material/Storefront";
-import { useCart } from "../context/useCart";
+import { useCart } from "../context/cart/useCart";
 
 export const Header = ({ onToggleCart }: { onToggleCart: () => void }) => {
   const { state } = useCart();
