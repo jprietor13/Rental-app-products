@@ -1,14 +1,7 @@
 import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import { Button, Typography } from "@mui/material";
-
-interface CartFooterProps {
-  total: number;
-  selectedCount: number;
-  onRemoveSelected: () => void;
-  onClearAll: () => void;
-  isDisabled?: boolean;
-}
+import type { CartFooterProps } from "../../models/cart";
 
 export const CartFooter = ({
   total,

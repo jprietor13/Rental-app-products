@@ -8,14 +8,7 @@ import {
   DialogContent,
   DialogTitle,
 } from "@mui/material";
-import type { useRental } from "../../hooks/useRental";
-
-type AppDialogProps = {
-  openDialog: boolean;
-  rental: ReturnType<typeof useRental>;
-  showMessage: (msg: string) => void;
-  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import type { AppDialogProps } from "../../models/ui";
 
 export const AppDialog = ({
   openDialog,
@@ -48,7 +41,7 @@ export const AppDialog = ({
         </p>
         <p className="flex justify-between rounded-lg bg-brand-50 px-3 py-2 text-lg font-bold text-brand-700">
           <span>Total:</span>
-          <span>${rental.total}</span>
+          <span>${rental.total.toLocaleString()}</span>
         </p>
       </DialogContent>
 

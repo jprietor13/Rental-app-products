@@ -1,11 +1,7 @@
 import CloseIcon from "@mui/icons-material/Close";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { IconButton, Typography } from "@mui/material";
-
-interface CartHeaderProps {
-  onClose: () => void;
-  itemCount: number;
-}
+import type { CartHeaderProps } from "../../models/cart";
 
 export const CartHeader = ({ onClose, itemCount }: CartHeaderProps) => {
   return (

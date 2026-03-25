@@ -1,8 +1,5 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-
-interface CartEmptyStateProps {
-  message?: string;
-}
+import type { CartEmptyStateProps } from "../../models/cart";
 
 export const CartEmptyState = ({
   message = "Carrito vacio",

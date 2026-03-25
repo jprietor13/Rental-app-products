@@ -1,15 +1,5 @@
 import { TextField } from "@mui/material";
-
-type AppTextFieldProps = {
-  calendarEnabled: boolean;
-  startDate: string;
-  onStartDateChange: (date: string) => void;
-  endDate: string;
-  onEndDateChange: (date: string) => void;
-  quantity: number;
-  onQuantityChange: (quantity: number) => void;
-  today: string;
-};
+import type { AppTextFieldProps } from "../../models/ui";
 
 export const AppTextField = ({
   calendarEnabled,

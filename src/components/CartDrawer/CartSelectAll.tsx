@@ -1,10 +1,6 @@
 import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { Checkbox } from "@mui/material";
-
-interface CartSelectAllProps {
-  isChecked: boolean;
-  onChange: () => void;
-}
+import type { CartSelectAllProps } from "../../models/cart";
 
 export const CartSelectAll = ({ isChecked, onChange }: CartSelectAllProps) => {
   return (

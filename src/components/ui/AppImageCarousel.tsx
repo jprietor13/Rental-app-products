@@ -1,11 +1,7 @@
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useCallback, useState } from "react";
-
-interface AppImageCarouselProps {
-  images: string[];
-  alt: string;
-}
+import type { AppImageCarouselProps } from "../../models/ui";
 
 export const AppImageCarousel = ({ images, alt }: AppImageCarouselProps) => {
   const [current, setCurrent] = useState(0);

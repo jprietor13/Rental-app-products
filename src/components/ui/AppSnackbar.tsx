@@ -1,10 +1,5 @@
 import { Alert, Snackbar } from "@mui/material";
-
-type AppSnackbarProps = {
-  openSnackbar: boolean;
-  message: string;
-  setOpenSnackbar: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import type { AppSnackbarProps } from "../../models/ui";
 
 export const AppSnackbar = ({
   openSnackbar,

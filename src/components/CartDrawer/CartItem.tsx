@@ -1,15 +1,6 @@
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Button, Checkbox } from "@mui/material";
-
-interface CartItemProps {
-  id: string | number;
-  name: string;
-  price: number;
-  image: string;
-  isSelected: boolean;
-  onSelect: (id: string) => void;
-  onRemove: (id: string) => void;
-}
+import type { CartItemProps } from "../../models/cart";
 
 export const CartItem = ({
   id,
@@ -40,8 +31,12 @@ export const CartItem = ({
       </div>
 
       <div className="flex-1 flex flex-col">
-        <p className="line-clamp-2 text-sm font-medium text-slate-800">{name}</p>
-        <p className="text-base font-bold text-slate-900">${Number(price).toLocaleString()}</p>
+        <p className="line-clamp-2 text-sm font-medium text-slate-800">
+          {name}
+        </p>
+        <p className="text-base font-bold text-slate-900">
+          ${Number(price).toLocaleString()}
+        </p>
       </div>
 
       <Button

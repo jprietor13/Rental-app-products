@@ -1,16 +1,7 @@
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Button } from "@mui/material";
-import type { useRental } from "../../hooks/useRental";
-
-type AppButtonProps = {
-  rental: ReturnType<typeof useRental>;
-  showMessage: (msg: string) => void;
-  isValidDates: boolean;
-  isValidQuantity: boolean;
-  canConfirm: boolean;
-  setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;
-};
+import type { AppButtonProps } from "../../models/ui";
 
 export const AppButton = ({
   rental,

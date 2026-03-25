@@ -1,12 +1,5 @@
 import { CartItem } from "./CartItem";
-import type { CartItem as CartModelItem } from "../../models/cart";
-
-interface CartItemListProps {
-  items: CartModelItem[];
-  selectedItems: string[];
-  onSelect: (id: string) => void;
-  onRemove: (id: string) => void;
-}
+import type { CartItemListProps } from "../../models/cart";
 
 export const CartItemList = ({
   items,
