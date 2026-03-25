@@ -1,13 +1,14 @@
-import { Header } from "./Header";
+import type { ReactNode } from "react";
 import { CartDrawer } from "../components/CartDrawer";
 import { useCart } from "../hooks/useCart";
-import type { ReactNode } from "react";
+import { Footer } from "./Footer";
+import { Header } from "./Header";
 
 export const Layout = ({ children }: { children: ReactNode }) => {
   const { isCartOpen, toggleCart, setIsCartOpen } = useCart();
 
   return (
-    <div className="min-h-screen transition-colors duration-300">
+    <div className="flex min-h-screen flex-col transition-colors duration-300">
       <Header onToggleCart={toggleCart} />
 
       <div className="relative">
@@ -18,9 +19,11 @@ export const Layout = ({ children }: { children: ReactNode }) => {
         <div className="mx-auto h-28 w-[92%] rounded-full bg-brand-300/15 blur-3xl" />
       </div>
 
-      <main className="relative z-10 mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8 animate-fade-in">
+      <main className="relative z-10 mx-auto w-full max-w-7xl flex-1 px-4 py-6 sm:px-6 lg:px-8 lg:py-8 animate-fade-in">
         {children}
       </main>
+
+      <Footer />
     </div>
   );
 };
