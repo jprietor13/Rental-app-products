@@ -1,7 +1,7 @@
-import { createContext, useReducer, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import type { CartState } from "../models/cart";
 
-const CartContext = createContext(null);
+const CartContext = createContext<any>(null);
 
 const initialState: CartState = {
   items: [],
@@ -9,12 +9,34 @@ const initialState: CartState = {
 
 const reducer = (state: CartState, action: any): CartState => {
   switch (action.type) {
-    case "ADD":
+    case "ADD": {
+      const exists = state.items.some((item) => item.id === action.payload.id);
+
+      if (exists) return state;
+
       return { ...state, items: [...state.items, action.payload] };
+    }
+
+    case "REMOVE":
+      return {
+        ...state,
+        items: state.items.filter(
+          (item) => String(item.id) !== String(action.payload),
+        ),
+      };
+
+    case "REMOVE_MANY":
+      return {
+        ...state,
+        items: state.items.filter((item) => !action.payload.includes(item.id)),
+      };
+
     case "CLEAR":
       return { ...state, items: [] };
+
     case "SET_ITEMS":
       return { ...state, items: action.payload };
+
     default:
       return state;
   }

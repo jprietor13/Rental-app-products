@@ -1,51 +1,57 @@
-import { Drawer, IconButton, Typography, Button } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import { useCart } from "../context/cartContext";
+import { Drawer } from "@mui/material";
+import { useCartDrawer } from "../hooks/useCartDrawer";
+import { CartHeader } from "./CartDrawer/CartHeader";
+import { CartEmptyState } from "./CartDrawer/CartEmptyState";
+import { CartSelectAll } from "./CartDrawer/CartSelectAll";
+import { CartItemList } from "./CartDrawer/CartItemList";
+import { CartFooter } from "./CartDrawer/CartFooter";
 
-export const CartDrawer = ({ open, onClose }: any) => {
-  const { state, dispatch } = useCart();
+interface CartDrawerProps {
+  open: boolean;
+  onClose: () => void;
+}
 
-  const handleRemove = (id: string) => {
-    dispatch({ type: "REMOVE", payload: id });
-  };
-
-  const total = state.items.reduce(
-    (acc: number, item: any) => acc + item.price,
-    0,
-  );
+export const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
+  const {
+    state,
+    selectedItems,
+    isEmpty,
+    isAllSelected,
+    total,
+    toggleSelect,
+    handleSelectAll,
+    handleRemove,
+    handleRemoveSelected,
+    handleClearAll,
+  } = useCartDrawer();
 
   return (
     <Drawer anchor="right" open={open} onClose={onClose}>
-      <div style={{ width: 300, padding: 20 }}>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography variant="h6">Carrito</Typography>
+      <div>
+        <CartHeader onClose={onClose} />
 
-          <IconButton onClick={onClose}>
-            <CloseIcon />
-          </IconButton>
-        </div>
-
-        {state.items.length === 0 ? (
-          <p>Carrito vacío</p>
+        {isEmpty ? (
+          <CartEmptyState />
         ) : (
           <>
-            {state.items.map((item: any) => (
-              <div key={item.id} style={{ marginBottom: 10 }}>
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <p>{item.name}</p>
-                <p>${item.price}</p>
+            <CartSelectAll
+              isChecked={isAllSelected}
+              onChange={handleSelectAll}
+            />
 
-                <Button color="error" onClick={() => handleRemove(item.id)}>
-                  Eliminar
-                </Button>
-              </div>
-            ))}
+            <CartItemList
+              items={state.items}
+              selectedItems={selectedItems}
+              onSelect={toggleSelect}
+              onRemove={handleRemove}
+            />
 
-            <Typography variant="h6">Total: ${total}</Typography>
+            <CartFooter
+              total={total}
+              selectedCount={selectedItems.length}
+              onRemoveSelected={handleRemoveSelected}
+              onClearAll={handleClearAll}
+            />
           </>
         )}
       </div>
