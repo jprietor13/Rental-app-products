@@ -1,10 +1,7 @@
-import { useProducts } from "./hooks/useProducts";
+import { AppRouter } from "./routes/AppRouter";
 
 function App() {
-  const { data } = useProducts();
-  console.log("🚀 ~ App ~ data:", data);
-
-  return <h1>Rental app products</h1>;
+  return <AppRouter />;
 }
 
 export default App;
