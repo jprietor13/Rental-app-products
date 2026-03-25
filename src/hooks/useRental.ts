@@ -22,6 +22,7 @@ export const useRental = (product: Product) => {
       type: "ADD",
       payload: {
         id: product.productId,
+        image: product.mediaUrls[0] || "",
         name: product.displayName,
         price,
       },
