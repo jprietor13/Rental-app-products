@@ -1,13 +1,14 @@
+import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { useCart } from "../context/useCart";
 import { useProducts } from "../hooks/useProducts";
 import { useRental } from "../hooks/useRental";
-import { useCart } from "../context/useCart";
-import { useState } from "react";
 
-import { AppTextField } from "../components/ui/AppTextField";
+import { AppImageCarousel } from "../components/ui/AppImageCarousel";
 import { AppButton } from "../components/ui/AppButton";
-import { AppSnackbar } from "../components/ui/AppSnackbar";
 import { AppDialog } from "../components/ui/AppDialog";
+import { AppSnackbar } from "../components/ui/AppSnackbar";
+import { AppTextField } from "../components/ui/AppTextField";
 
 export const ProductDetail = () => {
   const { id } = useParams();
@@ -81,15 +82,7 @@ export const ProductDetail = () => {
           {product.displayName}
         </h1>
 
-        {product.mediaUrls.length > 0 && (
-          <div className="mt-5 flex h-[330px] w-full items-center justify-center overflow-hidden rounded-xl bg-slate-100 p-4">
-            <img
-              src={product.mediaUrls[0]}
-              alt={product.displayName}
-              className="h-full object-contain transition-transform duration-500 hover:scale-105"
-            />
-          </div>
-        )}
+        <AppImageCarousel images={product.mediaUrls} alt={product.displayName} />
       </section>
 
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft md:p-6">
