@@ -1,5 +1,5 @@
-export interface Products {
-  id: string;
+export interface Product {
+  productId: string;
   displayName: string;
   mediaUrls: string[];
   prices: {
