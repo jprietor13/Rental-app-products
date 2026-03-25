@@ -7,16 +7,20 @@ export const generateRentalJSON = (
   days: number,
   quantity: number,
 ) => {
-  return items.map((item) => ({
-    fechaInicio: startDate,
-    fechaFinal: endDate,
-    diasAlquiler: days,
-    cantidad: quantity,
-    producto: item.id,
-    descripcionProducto: item.name,
-    precioDia: item.price,
-    precioTotal: days * quantity * item.price,
-  }));
+  return items.map((item) => {
+    const raw = String(item.price);
+    const precioDia = Number(raw.replace(/\./g, "").replace(",", ".")) || 0;
+    return {
+      fechaInicio: startDate,
+      fechaFinal: endDate,
+      diasAlquiler: days,
+      cantidad: quantity,
+      producto: item.id,
+      descripcionProducto: item.name,
+      precioDia,
+      precioTotal: days * quantity * precioDia,
+    };
+  });
 };
 
 export const downloadJSON = <T,>(data: T) => {

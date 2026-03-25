@@ -34,7 +34,7 @@ export const Home = () => {
 
   return (
     <div className="flex flex-col gap-6 animate-fade-in">
-      <section className="rounded-2xl bg-gradient-to-r from-brand-800 to-brand-600 px-6 py-7 text-white shadow-lift">
+      <section className="rounded-2xl bg-gradient-to-r from-brand-800 to-brand-600 px-6 py-7 text-black shadow-lift">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-100">
           ecommerce de alquiler
         </p>

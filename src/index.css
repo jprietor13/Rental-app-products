@@ -20,6 +20,10 @@ body {
   color: #0f172a;
 }
 
+button {
+  cursor: pointer
+}
+
 #root {
   min-height: 100vh;
 }
