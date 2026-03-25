@@ -1,4 +1,6 @@
-import { Typography, Button } from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
+import { Button, Typography } from "@mui/material";
 
 interface CartFooterProps {
   total: number;
@@ -30,6 +32,7 @@ export const CartFooter = ({
           fullWidth
           className="!rounded-xl !bg-red-600 !py-2.5 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-red-700 hover:!shadow-lift disabled:!bg-gray-300 disabled:!text-gray-500 disabled:!shadow-none"
         >
+          <DeleteIcon fontSize="small" className="mr-1.5" />
           Eliminar seleccionados ({selectedCount})
         </Button>
 
@@ -40,6 +43,7 @@ export const CartFooter = ({
           fullWidth
           className="!rounded-xl !border-red-500 !py-2.5 !font-medium !text-red-600 transition-all duration-300 hover:!bg-red-50"
         >
+          <RemoveShoppingCartIcon fontSize="small" className="mr-1.5" />
           Vaciar carrito
         </Button>
       </div>

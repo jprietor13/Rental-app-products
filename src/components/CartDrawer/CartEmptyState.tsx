@@ -1,3 +1,5 @@
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+
 interface CartEmptyStateProps {
   message?: string;
 }
@@ -7,7 +9,7 @@ export const CartEmptyState = ({
 }: CartEmptyStateProps) => {
   return (
     <div className="flex h-full flex-col items-center justify-center gap-3 py-10 text-center">
-      <div className="text-5xl opacity-60 animate-bounce">🛒</div>
+      <ShoppingCartOutlinedIcon className="!text-5xl !text-slate-400 animate-bounce" />
 
       <p className="text-lg font-medium text-slate-700">{message}</p>
 

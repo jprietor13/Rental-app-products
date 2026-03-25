@@ -1,3 +1,4 @@
+import DoneAllIcon from "@mui/icons-material/DoneAll";
 import { Checkbox } from "@mui/material";
 
 interface CartSelectAllProps {
@@ -14,7 +15,8 @@ export const CartSelectAll = ({ isChecked, onChange }: CartSelectAllProps) => {
         size="small"
         className="!text-brand-600"
       />
-      <span className="text-sm font-medium text-slate-800">
+      <span className="text-sm font-medium text-slate-800 flex items-center gap-1">
+        <DoneAllIcon fontSize="small" className="!text-brand-600" />
         Seleccionar todos
       </span>
     </div>

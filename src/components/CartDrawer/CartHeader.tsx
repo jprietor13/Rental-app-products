@@ -1,16 +1,24 @@
-import { Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { IconButton, Typography } from "@mui/material";
 
 interface CartHeaderProps {
   onClose: () => void;
+  itemCount: number;
 }
 
-export const CartHeader = ({ onClose }: CartHeaderProps) => {
+export const CartHeader = ({ onClose, itemCount }: CartHeaderProps) => {
   return (
     <div className="flex items-center justify-between border-b border-slate-200 pb-3">
-      <Typography className="text-lg font-semibold text-slate-900">
-        Carrito
-      </Typography>
+      <div className="flex items-center gap-2">
+        <ShoppingCartIcon fontSize="small" className="!text-brand-600" />
+        <Typography className="text-lg font-semibold text-slate-900">
+          Carrito
+        </Typography>
+        <span className="flex h-6 min-w-6 items-center justify-center rounded-full bg-brand-100 px-1.5 text-xs font-bold text-brand-700">
+          {itemCount}
+        </span>
+      </div>
 
       <IconButton
         onClick={onClose}

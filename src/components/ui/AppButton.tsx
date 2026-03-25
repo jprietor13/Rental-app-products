@@ -1,3 +1,5 @@
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import { Button } from "@mui/material";
 import type { useRental } from "../../hooks/useRental";
 
@@ -28,6 +30,7 @@ export const AppButton = ({
         }}
         className="!w-full !rounded-xl !bg-brand-600 !px-6 !py-3 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-brand-700 hover:!shadow-lift hover:scale-[1.01]"
       >
+        <AddShoppingCartIcon fontSize="small" className="mr-1.5" />
         Agregar producto
       </Button>
 
@@ -50,6 +53,7 @@ export const AppButton = ({
         }}
         className="!w-full !rounded-xl !bg-green-600 !px-6 !py-3 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-green-700 hover:!shadow-lift hover:scale-[1.01] disabled:!bg-gray-300 disabled:!text-gray-500 disabled:!shadow-none disabled:hover:scale-100"
       >
+        <CheckCircleIcon fontSize="small" className="mr-1.5" />
         Confirmar alquiler
       </Button>
     </>

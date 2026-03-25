@@ -1,10 +1,10 @@
 import { Drawer } from "@mui/material";
 import { useCartDrawer } from "../hooks/useCartDrawer";
-import { CartHeader } from "./CartDrawer/CartHeader";
 import { CartEmptyState } from "./CartDrawer/CartEmptyState";
-import { CartSelectAll } from "./CartDrawer/CartSelectAll";
-import { CartItemList } from "./CartDrawer/CartItemList";
 import { CartFooter } from "./CartDrawer/CartFooter";
+import { CartHeader } from "./CartDrawer/CartHeader";
+import { CartItemList } from "./CartDrawer/CartItemList";
+import { CartSelectAll } from "./CartDrawer/CartSelectAll";
 
 interface CartDrawerProps {
   open: boolean;
@@ -37,7 +37,7 @@ export const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
     >
       <div className="flex flex-col h-full">
         <div className="px-5 py-4 bg-white/85 shadow-sm">
-          <CartHeader onClose={onClose} />
+          <CartHeader onClose={onClose} itemCount={state.items.length} />
         </div>
 
         {isEmpty ? (

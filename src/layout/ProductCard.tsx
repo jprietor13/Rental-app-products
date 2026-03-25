@@ -1,3 +1,4 @@
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useNavigate } from "react-router-dom";
 import type { Product } from "../models/products";
 
@@ -44,6 +45,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         type="button"
         className="mt-1 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-sm font-semibold text-slate-700 transition-all duration-300 group-hover:border-brand-200 group-hover:bg-brand-50 group-hover:text-brand-700"
       >
+        <VisibilityIcon fontSize="small" className="mr-1.5" />
         Ver detalle
       </button>
     </div>

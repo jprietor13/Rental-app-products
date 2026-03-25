@@ -1,3 +1,4 @@
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { Button, Checkbox } from "@mui/material";
 
 interface CartItemProps {
@@ -51,6 +52,7 @@ export const CartItem = ({
         fullWidth
         className="!rounded-lg !border-red-500 !px-3 !py-1.5 !text-red-600 transition-all duration-200 hover:!bg-red-50"
       >
+        <DeleteOutlineIcon fontSize="small" className="mr-1" />
         Eliminar
       </Button>
     </div>

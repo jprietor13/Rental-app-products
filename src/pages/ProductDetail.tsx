@@ -1,17 +1,19 @@
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useCart } from "../context/useCart";
 import { useProducts } from "../hooks/useProducts";
 import { useRental } from "../hooks/useRental";
 
-import { AppImageCarousel } from "../components/ui/AppImageCarousel";
 import { AppButton } from "../components/ui/AppButton";
 import { AppDialog } from "../components/ui/AppDialog";
+import { AppImageCarousel } from "../components/ui/AppImageCarousel";
 import { AppSnackbar } from "../components/ui/AppSnackbar";
 import { AppTextField } from "../components/ui/AppTextField";
 
 export const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { data, loading, error } = useProducts();
   const product = data?.find((p) => p.productId === id);
 
@@ -73,7 +75,16 @@ export const ProductDetail = () => {
   const today = new Date().toISOString().split("T")[0];
 
   return (
-    <div className="grid animate-slide-up gap-6 lg:grid-cols-[1.1fr_1fr]">
+    <div className="flex flex-col gap-6 animate-slide-up">
+      <button
+        onClick={() => navigate("/")}
+        className="flex w-fit items-center gap-1.5 rounded-lg px-3 py-1.5 text-sm font-medium text-slate-600 transition-all duration-200 hover:bg-slate-100 hover:text-brand-700"
+      >
+        <ArrowBackIcon fontSize="small" />
+        Volver a productos
+      </button>
+
+      <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft md:p-6">
         <div className="mb-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
           Producto premium
@@ -124,6 +135,7 @@ export const ProductDetail = () => {
           />
         </div>
       </section>
+      </div>
 
       <AppSnackbar
         openSnackbar={openSnackbar}
