@@ -21,7 +21,7 @@ export const AppSnackbar = ({
       <Alert
         severity="success"
         variant="filled"
-        className="!bg-brand-600 !text-white !font-medium !rounded-lg !shadow-lift transition-all duration-300"
+        className="bg-brand-600! text-white! font-medium! rounded-lg! shadow-lift! transition-all duration-300"
       >
         {message}
       </Alert>

@@ -31,7 +31,7 @@ export const AppTextField = ({
         onChange={(e) => onStartDateChange(e.target.value)}
         disabled={!calendarEnabled}
         inputProps={{ min: today }}
-        className="w-full !rounded-lg !bg-white !shadow-sm transition-all duration-300 focus-within:!shadow-soft"
+        className="w-full rounded-lg! bg-white! shadow-sm! transition-all duration-300 focus-within:shadow-soft!"
       />
 
       <TextField
@@ -42,7 +42,7 @@ export const AppTextField = ({
         onChange={(e) => onEndDateChange(e.target.value)}
         disabled={!calendarEnabled || !startDate}
         inputProps={{ min: startDate || today }}
-        className="w-full !rounded-lg !bg-white !shadow-sm transition-all duration-300 focus-within:!shadow-soft"
+        className="w-full rounded-lg! bg-white! shadow-sm! transition-all duration-300 focus-within:shadow-soft!"
       />
 
       {calendarEnabled && startDate && endDate ? (
@@ -52,7 +52,7 @@ export const AppTextField = ({
           value={quantity}
           onChange={(e) => onQuantityChange(Number(e.target.value))}
           inputProps={{ min: 1 }}
-          className="w-full !rounded-lg !bg-white !shadow-sm transition-all duration-300 focus-within:!shadow-soft"
+          className="w-full rounded-lg! bg-white! shadow-sm! transition-all duration-300 focus-within:shadow-soft!"
         />
       ) : null}
     </div>

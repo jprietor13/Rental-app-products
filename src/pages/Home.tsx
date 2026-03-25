@@ -6,7 +6,7 @@ export const Home = () => {
   if (loading)
     return (
       <div className="flex flex-col gap-6 animate-fade-in">
-        <section className="rounded-2xl bg-gradient-to-r from-brand-700 to-brand-500 p-6 text-white shadow-lift">
+        <section className="rounded-2xl bg-linear-to-r from-brand-700 to-brand-500 p-6 text-white shadow-lift">
           <div className="skeleton h-7 w-44 rounded-md bg-white/25" />
           <div className="mt-3 skeleton h-4 w-72 rounded-md bg-white/20" />
         </section>
@@ -34,7 +34,7 @@ export const Home = () => {
 
   return (
     <div className="flex flex-col gap-6 animate-fade-in">
-      <section className="rounded-2xl bg-gradient-to-r from-brand-800 to-brand-600 px-6 py-7 text-black shadow-lift">
+      <section className="rounded-2xl bg-linear-to-r from-brand-800 to-brand-600 px-6 py-7 text-black shadow-lift">
         <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-100">
           ecommerce de alquiler
         </p>

@@ -21,13 +21,13 @@ export const CartItem = ({
   onRemove,
 }: CartItemProps) => {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-soft transition-all duration-300 hover:-translate-y-[1px] hover:shadow-lift">
+    <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-3 shadow-soft transition-all duration-300 hover:-translate-y-px hover:shadow-lift">
       <div>
         <Checkbox
           checked={isSelected}
           onChange={() => onSelect(String(id))}
           size="small"
-          className="!text-brand-600"
+          className="text-brand-600!"
         />
       </div>
 
@@ -50,7 +50,7 @@ export const CartItem = ({
         variant="outlined"
         size="small"
         fullWidth
-        className="!rounded-lg !border-red-500 !px-3 !py-1.5 !text-red-600 transition-all duration-200 hover:!bg-red-50"
+        className="rounded-lg! border-red-500! px-3! py-1.5! text-red-600! transition-all duration-200 hover:bg-red-50!"
       >
         <DeleteOutlineIcon fontSize="small" className="mr-1" />
         Eliminar

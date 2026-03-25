@@ -29,11 +29,11 @@ export const AppDialog = ({
       onClose={() => setOpenDialog(false)}
       PaperProps={{
         className:
-          "glass-panel rounded-2xl border border-slate-200 !p-2 shadow-lift transition-all duration-300",
+          "glass-panel rounded-2xl border border-slate-200 p-2! shadow-lift transition-all duration-300",
       }}
     >
       <DialogTitle className="text-xl font-semibold text-slate-900 flex items-center gap-2">
-        <ReceiptLongIcon className="!text-brand-600" />
+        <ReceiptLongIcon className="text-brand-600!" />
         Confirmar alquiler
       </DialogTitle>
 
@@ -55,7 +55,7 @@ export const AppDialog = ({
       <DialogActions className="px-6 pb-4 flex justify-end gap-3">
         <Button
           onClick={() => setOpenDialog(false)}
-          className="!rounded-lg !px-4 !py-2 !text-gray-600 transition-all duration-200 hover:!bg-gray-100"
+          className="rounded-lg! px-4! py-2! text-gray-600! transition-all duration-200 hover:bg-gray-100!"
         >
           <CloseIcon fontSize="small" className="mr-1" />
           Cancelar
@@ -74,7 +74,7 @@ export const AppDialog = ({
             showMessage("El proceso de alquiler culminó de manera correcta");
             setOpenDialog(false);
           }}
-          className="!rounded-lg !bg-brand-600 !px-5 !py-2 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-brand-700 hover:!shadow-lift"
+          className="rounded-lg! bg-brand-600! px-5! py-2! font-semibold! text-white! shadow-soft! transition-all duration-300 hover:bg-brand-700! hover:shadow-lift!"
         >
           <CheckCircleIcon fontSize="small" className="mr-1" />
           Confirmar

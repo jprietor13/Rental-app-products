@@ -11,7 +11,7 @@ export const CartHeader = ({ onClose, itemCount }: CartHeaderProps) => {
   return (
     <div className="flex items-center justify-between border-b border-slate-200 pb-3">
       <div className="flex items-center gap-2">
-        <ShoppingCartIcon fontSize="small" className="!text-brand-600" />
+        <ShoppingCartIcon fontSize="small" className="text-brand-600!" />
         <Typography className="text-lg font-semibold text-slate-900">
           Carrito
         </Typography>
@@ -23,7 +23,7 @@ export const CartHeader = ({ onClose, itemCount }: CartHeaderProps) => {
       <IconButton
         onClick={onClose}
         size="small"
-        className="!rounded-full !text-slate-500 transition-all duration-200 hover:!bg-slate-100 hover:!text-slate-800"
+        className="rounded-full! text-slate-500! transition-all duration-200 hover:bg-slate-100! hover:text-slate-800!"
       >
         <CloseIcon />
       </IconButton>

@@ -13,10 +13,10 @@ export const CartSelectAll = ({ isChecked, onChange }: CartSelectAllProps) => {
         checked={isChecked}
         onChange={onChange}
         size="small"
-        className="!text-brand-600"
+        className="text-brand-600!"
       />
       <span className="text-sm font-medium text-slate-800 flex items-center gap-1">
-        <DoneAllIcon fontSize="small" className="!text-brand-600" />
+        <DoneAllIcon fontSize="small" className="text-brand-600!" />
         Seleccionar todos
       </span>
     </div>
