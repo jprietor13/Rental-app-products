@@ -3,8 +3,6 @@ import { useProducts } from "../hooks/useProducts";
 
 export const Home = () => {
   const { data, loading, error } = useProducts();
-  console.log("🚀 ~ Home ~ data:", data);
-
   if (loading) return <div>Cargando...</div>;
   if (error) return <div>{error}</div>;
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCart } from "../context/cartContext";
+import { useCart } from "../context/useCart";
 
 export const useCartDrawer = () => {
   const { state, dispatch } = useCart();
@@ -15,7 +15,7 @@ export const useCartDrawer = () => {
     if (selectedItems.length === state.items.length) {
       setSelectedItems([]);
     } else {
-      setSelectedItems(state.items.map((item: any) => item.id));
+      setSelectedItems(state.items.map((item) => item.id));
     }
   };
 
@@ -35,7 +35,7 @@ export const useCartDrawer = () => {
   };
 
   const calculateTotal = () => {
-    return state.items.reduce((acc: number, item: any) => acc + item.price, 0);
+    return state.items.reduce((acc: number, item) => acc + item.price, 0);
   };
 
   const isAllSelected = selectedItems.length === state.items.length && state.items.length > 0;

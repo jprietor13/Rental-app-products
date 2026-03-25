@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useCart } from "../context/cartContext";
+import { useCart } from "../context/useCart";
 import { calculateDays, calculateTotal } from "../utils/rentalUtils";
 import { generateRentalJSON, downloadJSON } from "../utils/jsonUtils";
 import type { Product } from "../models/products";
@@ -13,9 +13,11 @@ export const useRental = (product: Product) => {
 
   const price = product?.prices?.[0]?.price || 0;
 
+  const cartPriceSum = state.items.reduce((acc, item) => acc + item.price, 0);
+
   const days = startDate && endDate ? calculateDays(startDate, endDate) : 0;
 
-  const total = days && quantity ? calculateTotal(days, quantity, price) : 0;
+  const total = days && quantity ? calculateTotal(days, quantity, cartPriceSum) : 0;
 
   const addToCart = () => {
     dispatch({
@@ -42,7 +44,13 @@ export const useRental = (product: Product) => {
       return { error: "El carrito está vacío" };
     }
 
-    const json = generateRentalJSON(state.items, startDate, endDate, days);
+    const json = generateRentalJSON(
+      state.items,
+      startDate,
+      endDate,
+      days,
+      quantity,
+    );
 
     downloadJSON(json);
     dispatch({ type: "CLEAR" });

@@ -43,7 +43,7 @@ export const AppDialog = ({
               return;
             }
 
-            showMessage("Alquiler completado correctamente");
+            showMessage("El proceso de alquiler culminó de manera correcta");
             setOpenDialog(false);
           }}
         >

@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useProducts } from "../hooks/useProducts";
 import { useRental } from "../hooks/useRental";
+import { useCart } from "../context/useCart";
 import { useState } from "react";
 
 import { AppTextField } from "../components/ui/AppTextField";
@@ -14,6 +15,7 @@ export const ProductDetail = () => {
   const product = data?.find((p) => p.productId === id);
 
   const rental = useRental(product!);
+  const { state: cartState } = useCart();
 
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState("");
@@ -28,11 +30,15 @@ export const ProductDetail = () => {
   if (error) return <div>{error}</div>;
   if (!product) return <div>Producto no encontrado</div>;
 
-  const isValidDates = rental.startDate && rental.endDate && rental.days > 0;
+  const hasCartItems = cartState.items.length > 0;
+
+  const isValidDates = Boolean(
+    rental.startDate && rental.endDate && rental.days > 0,
+  );
 
   const isValidQuantity = rental.quantity > 0;
 
-  const canConfirm = isValidDates && isValidQuantity;
+  const canConfirm = hasCartItems && isValidDates && isValidQuantity;
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -47,6 +53,7 @@ export const ProductDetail = () => {
       <p>Precio por día: ${product.prices?.[0]?.price || 0}</p>
 
       <AppTextField
+        calendarEnabled={hasCartItems}
         startDate={rental.startDate}
         onStartDateChange={rental.setStartDate}
         endDate={rental.endDate}

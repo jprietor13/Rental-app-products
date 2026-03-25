@@ -1,8 +1,9 @@
 export interface CartItem {
-  id: number;
+  id: string;
   name: string;
   price: number;
-  quantity: number;
+  image: string;
+  quantity?: number;
 }
 
 export interface CartState {
@@ -11,5 +12,7 @@ export interface CartState {
 
 export type CartAction =
   | { type: "ADD"; payload: CartItem }
+  | { type: "REMOVE"; payload: string }
+  | { type: "REMOVE_MANY"; payload: string[] }
   | { type: "CLEAR" }
   | { type: "SET_ITEMS"; payload: CartItem[] };

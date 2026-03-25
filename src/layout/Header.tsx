@@ -1,4 +1,4 @@
-import { useCart } from "../context/cartContext";
+import { useCart } from "../context/useCart";
 import { Button, Badge } from "@mui/material";
 
 export const Header = ({ onToggleCart }: { onToggleCart: () => void }) => {

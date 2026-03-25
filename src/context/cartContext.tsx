@@ -1,13 +1,18 @@
-import { createContext, useContext, useEffect, useReducer } from "react";
-import type { CartState } from "../models/cart";
+import { createContext, useEffect, useReducer } from "react";
+import type { CartAction, CartItem, CartState } from "../models/cart";
 
-const CartContext = createContext<any>(null);
+export type CartContextValue = {
+  state: CartState;
+  dispatch: React.Dispatch<CartAction>;
+};
+
+const CartContext = createContext<CartContextValue | null>(null);
 
 const initialState: CartState = {
   items: [],
 };
 
-const reducer = (state: CartState, action: any): CartState => {
+const reducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case "ADD": {
       const exists = state.items.some((item) => item.id === action.payload.id);
@@ -20,9 +25,7 @@ const reducer = (state: CartState, action: any): CartState => {
     case "REMOVE":
       return {
         ...state,
-        items: state.items.filter(
-          (item) => String(item.id) !== String(action.payload),
-        ),
+        items: state.items.filter((item) => item.id !== action.payload),
       };
 
     case "REMOVE_MANY":
@@ -54,7 +57,8 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
       );
 
       if (shouldRestore) {
-        dispatch({ type: "SET_ITEMS", payload: JSON.parse(stored) });
+        const storedItems = JSON.parse(stored) as CartItem[];
+        dispatch({ type: "SET_ITEMS", payload: storedItems });
       } else {
         localStorage.removeItem("cart");
       }
@@ -72,10 +76,4 @@ export const CartProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export const useCart = () => {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be used within a CartProvider");
-  }
-  return context;
-};
+export { CartContext };

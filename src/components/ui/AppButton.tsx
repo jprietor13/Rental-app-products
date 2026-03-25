@@ -4,9 +4,9 @@ import type { useRental } from "../../hooks/useRental";
 type AppButtonProps = {
   rental: ReturnType<typeof useRental>;
   showMessage: (msg: string) => void;
-  isValidDates: string | boolean;
+  isValidDates: boolean;
   isValidQuantity: boolean;
-  canConfirm: string | boolean;
+  canConfirm: boolean;
   setOpenDialog: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
@@ -24,10 +24,10 @@ export const AppButton = ({
         variant="contained"
         onClick={() => {
           rental.addToCart();
-          showMessage("Producto agregado al carrito");
+          showMessage("Producto cargado de manera exitosa");
         }}
       >
-        Agregar al carrito
+        Agregar producto
       </Button>
 
       <Button

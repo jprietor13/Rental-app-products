@@ -1,6 +1,7 @@
 import { TextField } from "@mui/material";
 
 type AppTextFieldProps = {
+  calendarEnabled: boolean;
   startDate: string;
   onStartDateChange: (date: string) => void;
   endDate: string;
@@ -11,6 +12,7 @@ type AppTextFieldProps = {
 };
 
 export const AppTextField = ({
+  calendarEnabled,
   startDate,
   onStartDateChange,
   endDate,
@@ -27,6 +29,7 @@ export const AppTextField = ({
         InputLabelProps={{ shrink: true }}
         value={startDate}
         onChange={(e) => onStartDateChange(e.target.value)}
+        disabled={!calendarEnabled}
         inputProps={{ min: today }}
       />
 
@@ -36,11 +39,11 @@ export const AppTextField = ({
         InputLabelProps={{ shrink: true }}
         value={endDate}
         onChange={(e) => onEndDateChange(e.target.value)}
-        disabled={!startDate}
+        disabled={!calendarEnabled || !startDate}
         inputProps={{ min: startDate || today }}
       />
 
-      {startDate && endDate && (
+      {calendarEnabled && startDate && endDate && (
         <TextField
           type="number"
           label="Cantidad"
