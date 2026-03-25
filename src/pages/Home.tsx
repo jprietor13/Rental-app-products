@@ -7,10 +7,12 @@ export const Home = () => {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
-      <h1>Productos</h1>
+    <div className="flex flex-col gap-6">
+      <h1 className="text-2xl font-bold text-gray-900 tracking-tight">
+        Productos
+      </h1>
 
-      <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data.map((product) => (
           <ProductCard key={product.productId} product={product} />
         ))}
