@@ -25,23 +25,24 @@ export const AppDialog = ({
       open={openDialog}
       onClose={() => setOpenDialog(false)}
       PaperProps={{
-        className: "rounded-2xl !p-2 shadow-lift transition-all duration-300",
+        className:
+          "glass-panel rounded-2xl border border-slate-200 !p-2 shadow-lift transition-all duration-300",
       }}
     >
-      <DialogTitle className="text-xl font-semibold text-gray-900">
+      <DialogTitle className="text-xl font-semibold text-slate-900">
         Confirmar alquiler
       </DialogTitle>
 
-      <DialogContent className="flex flex-col gap-3 text-gray-700">
-        <p className="flex justify-between">
+      <DialogContent className="flex flex-col gap-3 text-slate-700">
+        <p className="flex justify-between rounded-lg bg-slate-50 px-3 py-2">
           <span className="font-medium">Días:</span>
           <span>{rental.days}</span>
         </p>
-        <p className="flex justify-between">
+        <p className="flex justify-between rounded-lg bg-slate-50 px-3 py-2">
           <span className="font-medium">Cantidad:</span>
           <span>{rental.quantity}</span>
         </p>
-        <p className="flex justify-between text-lg font-bold text-brand-600">
+        <p className="flex justify-between rounded-lg bg-brand-50 px-3 py-2 text-lg font-bold text-brand-700">
           <span>Total:</span>
           <span>${rental.total}</span>
         </p>
@@ -50,7 +51,7 @@ export const AppDialog = ({
       <DialogActions className="px-6 pb-4 flex justify-end gap-3">
         <Button
           onClick={() => setOpenDialog(false)}
-          className="!text-gray-600 hover:!bg-gray-100 !rounded-lg !px-4 !py-2 transition-all duration-200"
+          className="!rounded-lg !px-4 !py-2 !text-gray-600 transition-all duration-200 hover:!bg-gray-100"
         >
           Cancelar
         </Button>
@@ -68,7 +69,7 @@ export const AppDialog = ({
             showMessage("El proceso de alquiler culminó de manera correcta");
             setOpenDialog(false);
           }}
-          className="!bg-brand-600 hover:!bg-brand-700 !text-white !font-semibold !px-5 !py-2 !rounded-lg !shadow-soft hover:!shadow-lift transition-all duration-300"
+          className="!rounded-lg !bg-brand-600 !px-5 !py-2 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-brand-700 hover:!shadow-lift"
         >
           Confirmar
         </Button>

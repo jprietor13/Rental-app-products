@@ -16,9 +16,9 @@ export const CartFooter = ({
   isDisabled = false,
 }: CartFooterProps) => {
   return (
-    <div className="border-t pt-4 flex flex-col gap-4 bg-white">
-      <Typography className="text-lg font-bold text-gray-900">
-        Total: ${total}
+    <div className="flex flex-col gap-4 bg-transparent pt-1">
+      <Typography className="rounded-xl bg-brand-50 px-4 py-3 text-lg font-bold text-brand-800">
+        Total seleccionado: ${total}
       </Typography>
 
       <div className="flex flex-col gap-3">
@@ -28,7 +28,7 @@ export const CartFooter = ({
           disabled={isDisabled || selectedCount === 0}
           onClick={onRemoveSelected}
           fullWidth
-          className="!bg-red-600 hover:!bg-red-700 !text-white !font-semibold !py-2.5 !rounded-lg !shadow-soft hover:!shadow-lift transition-all duration-300 disabled:!bg-gray-300 disabled:!text-gray-500 disabled:!shadow-none"
+          className="!rounded-xl !bg-red-600 !py-2.5 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-red-700 hover:!shadow-lift disabled:!bg-gray-300 disabled:!text-gray-500 disabled:!shadow-none"
         >
           Eliminar seleccionados ({selectedCount})
         </Button>
@@ -38,7 +38,7 @@ export const CartFooter = ({
           color="error"
           onClick={onClearAll}
           fullWidth
-          className="!border-red-500 !text-red-600 hover:!bg-red-50 !font-medium !py-2.5 !rounded-lg transition-all duration-300"
+          className="!rounded-xl !border-red-500 !py-2.5 !font-medium !text-red-600 transition-all duration-300 hover:!bg-red-50"
         >
           Vaciar carrito
         </Button>

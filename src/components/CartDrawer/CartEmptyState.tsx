@@ -6,12 +6,12 @@ export const CartEmptyState = ({
   message = "Carrito vacio",
 }: CartEmptyStateProps) => {
   return (
-    <div className="flex flex-col items-center justify-center h-full text-center gap-3 py-10">
-      <div className="text-5xl opacity-60">🛒</div>
+    <div className="flex h-full flex-col items-center justify-center gap-3 py-10 text-center">
+      <div className="text-5xl opacity-60 animate-bounce">🛒</div>
 
-      <p className="text-lg font-medium text-gray-700">{message}</p>
+      <p className="text-lg font-medium text-slate-700">{message}</p>
 
-      <span className="text-sm text-gray-500">
+      <span className="text-sm text-slate-500">
         Agrega productos para comenzar tu alquiler
       </span>
     </div>

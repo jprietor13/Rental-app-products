@@ -17,17 +17,18 @@ export function CartRestoreDialog() {
       onClose={dismissRestoreSavedCart}
       aria-labelledby="restore-cart-dialog-title"
       PaperProps={{
-        className: "rounded-2xl !p-2 shadow-lift transition-all duration-300",
+        className:
+          "glass-panel rounded-2xl border border-slate-200 !p-2 shadow-lift transition-all duration-300",
       }}
     >
       <DialogTitle
         id="restore-cart-dialog-title"
-        className="text-xl font-semibold text-gray-900"
+        className="text-xl font-semibold text-slate-900"
       >
         Tienes un carrito guardado
       </DialogTitle>
 
-      <DialogContent className="text-gray-700">
+      <DialogContent className="text-slate-700">
         ¿Deseas recuperarlo?
       </DialogContent>
 
@@ -35,7 +36,7 @@ export function CartRestoreDialog() {
         <Button
           onClick={dismissRestoreSavedCart}
           color="inherit"
-          className="!text-gray-600 hover:!bg-gray-100 !rounded-lg !px-4 !py-2 transition-all duration-200"
+          className="!rounded-lg !px-4 !py-2 !text-gray-600 transition-all duration-200 hover:!bg-gray-100"
         >
           No, descartarlo
         </Button>
@@ -44,7 +45,7 @@ export function CartRestoreDialog() {
           onClick={confirmRestoreSavedCart}
           variant="contained"
           autoFocus
-          className="!bg-brand-600 hover:!bg-brand-700 !text-white !font-semibold !px-5 !py-2 !rounded-lg !shadow-soft hover:!shadow-lift transition-all duration-300"
+          className="!rounded-lg !bg-brand-600 !px-5 !py-2 !font-semibold !text-white !shadow-soft transition-all duration-300 hover:!bg-brand-700 hover:!shadow-lift"
         >
           Sí, recuperarlo
         </Button>

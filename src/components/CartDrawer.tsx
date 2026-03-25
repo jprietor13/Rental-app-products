@@ -32,11 +32,11 @@ export const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
       onClose={onClose}
       PaperProps={{
         className:
-          "w-full max-w-md bg-gray-50 flex flex-col shadow-2xl transition-all duration-300",
+          "glass-panel w-full max-w-md flex flex-col border-l border-slate-200 shadow-2xl transition-all duration-300",
       }}
     >
       <div className="flex flex-col h-full">
-        <div className="px-5 py-4 bg-white shadow-sm">
+        <div className="px-5 py-4 bg-white/85 shadow-sm">
           <CartHeader onClose={onClose} />
         </div>
 
@@ -46,14 +46,14 @@ export const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
           </div>
         ) : (
           <>
-            <div className="px-5 py-3 bg-white border-b">
+            <div className="border-b border-slate-200 bg-white/80 px-5 py-3">
               <CartSelectAll
                 isChecked={isAllSelected}
                 onChange={handleSelectAll}
               />
             </div>
 
-            <div className="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-3">
+            <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-5 py-4">
               <CartItemList
                 items={state.items}
                 selectedItems={selectedItems}
@@ -62,7 +62,7 @@ export const CartDrawer = ({ open, onClose }: CartDrawerProps) => {
               />
             </div>
 
-            <div className="px-5 py-4 bg-white border-t">
+            <div className="border-t border-slate-200 bg-white/85 px-5 py-4">
               <CartFooter
                 total={total}
                 selectedCount={selectedItems.length}
