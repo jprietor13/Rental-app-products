@@ -15,7 +15,7 @@ export const CartItemList = ({
   onRemove,
 }: CartItemListProps) => {
   return (
-    <div>
+    <div className="flex flex-col gap-3 overflow-y-auto pr-1">
       {items.map((item) => (
         <CartItem
           key={item.id}

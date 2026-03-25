@@ -7,9 +7,16 @@ interface CartHeaderProps {
 
 export const CartHeader = ({ onClose }: CartHeaderProps) => {
   return (
-    <div style={{ display: "flex" }}>
-      <Typography variant="h6">Carrito</Typography>
-      <IconButton onClick={onClose} size="small">
+    <div className="flex items-center justify-between border-b pb-3">
+      <Typography className="text-lg font-semibold text-gray-900">
+        Carrito
+      </Typography>
+
+      <IconButton
+        onClick={onClose}
+        size="small"
+        className="!text-gray-500 hover:!text-gray-800 hover:!bg-gray-100 !rounded-full transition-all duration-200"
+      >
         <CloseIcon />
       </IconButton>
     </div>

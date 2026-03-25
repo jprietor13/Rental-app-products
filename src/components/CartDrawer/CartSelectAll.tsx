@@ -7,9 +7,16 @@ interface CartSelectAllProps {
 
 export const CartSelectAll = ({ isChecked, onChange }: CartSelectAllProps) => {
   return (
-    <div>
-      <Checkbox checked={isChecked} onChange={onChange} size="small" />
-      <span style={{ fontWeight: 500 }}>Seleccionar todos</span>
+    <div className="flex items-center gap-2 px-1 py-2">
+      <Checkbox
+        checked={isChecked}
+        onChange={onChange}
+        size="small"
+        className="!text-brand-600"
+      />
+      <span className="text-sm font-medium text-gray-800">
+        Seleccionar todos
+      </span>
     </div>
   );
 };
