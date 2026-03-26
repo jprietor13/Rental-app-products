@@ -44,7 +44,7 @@ export const ProductDetail = () => {
         Volver a productos
       </button>
 
-      <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.1fr_1fr]">
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft md:p-6">
           <div className="mb-4 inline-flex rounded-full bg-brand-50 px-3 py-1 text-xs font-semibold text-brand-700">
             Producto premium
