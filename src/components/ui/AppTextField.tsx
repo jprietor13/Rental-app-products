@@ -39,8 +39,8 @@ export const AppTextField = ({
         <TextField
           type="number"
           label="Cantidad"
-          value={quantity}
-          onChange={(e) => onQuantityChange(Number(e.target.value))}
+          value={quantity || ""}
+          onChange={(e) => onQuantityChange(Number(e.target.value) || 0)}
           inputProps={{ min: 1 }}
           className="w-full rounded-lg! bg-white! shadow-sm! transition-all duration-300 focus-within:shadow-soft!"
         />
