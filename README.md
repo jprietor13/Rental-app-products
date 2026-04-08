@@ -155,8 +155,11 @@ src/
 │   ├── jsonUtils.test.ts        # Tests de generación de JSON
 │   ├── rentalUtils.test.ts      # Tests de cálculos de alquiler
 │
+├── mocks 
+|   └── productMocks.ts          # Mock con la informacion de productos
+|
 ├── api/
-│   └── productApi.ts            # Servicio HTTP para obtener productos
+│   └── productApi.ts            # Servicio para obtener productos
 │
 ├── components/
 │   ├── CartDrawer/              # Sub-componentes del carrito
@@ -228,7 +231,7 @@ src/
 
 | Archivo | Descripción |
 |---|---|
-| `productApi.ts` | Servicio HTTP que consume la API REST externa mediante Axios. Obtiene el catálogo de productos desde `https://apim-dev-proxy.sodhc.co/test-jasson/api/category`. Maneja errores de Axios y soporta `AbortSignal` para cancelación de peticiones. |
+| `productApi.ts` | Servicio HTTP que consume la API REST externa mediante Axios. Obtiene el catálogo de productos desde mock local. Maneja errores de Axios y soporta `AbortSignal` para cancelación de peticiones. |
 
 ### Models - `src/models/`
 
