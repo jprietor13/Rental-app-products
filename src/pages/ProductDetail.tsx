@@ -62,7 +62,7 @@ export const ProductDetail = () => {
         <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-soft md:p-6">
           <p className="text-sm text-slate-500">Precio por dia</p>
           <p className="mt-1 text-3xl font-bold text-slate-900">
-            ${product.prices?.[0]?.price || 0}
+            ${product.prices?.[0]?.price.toLocaleString() || 0}
           </p>
           <p className="mt-1 text-sm text-slate-500">
             IVA incluido. Disponibilidad sujeta a stock.

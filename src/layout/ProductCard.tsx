@@ -37,7 +37,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       </h2>
 
       <p className="text-xl font-bold text-slate-900">
-        ${product.prices[0].price}
+        ${product.prices[0].price.toLocaleString()}
         <span className="ml-1 text-xs font-medium text-slate-500">/ dia</span>
       </p>
 
